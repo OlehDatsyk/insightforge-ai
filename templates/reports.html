@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Saved Reports - InsightForge AI{% endblock %}
+{% block content %}
+<div class="flex-between">
+  <div>
+    <h1>Saved Reports</h1>
+    <p class="muted mt-0">Every completed research report, ready to view or export.</p>
+  </div>
+  <a class="btn btn-primary" href="/research/new">+ New Research</a>
+</div>
+
+<div class="card mt-2">
+  <input type="text" id="search-box" placeholder="Search by question..." style="max-width:320px">
+</div>
+
+<div class="card mt-2" id="history-table-wrap">
+  <table>
+    <thead><tr><th>Report Title</th><th>Mode</th><th>Created</th><th></th></tr></thead>
+    <tbody id="history-body"><tr><td colspan="4" class="muted text-center">Loading...</td></tr></tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>window.__PAGE_MODE__ = "reports";</script>
+<script src="/static/js/history.js"></script>
+{% endblock %}

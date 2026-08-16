@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Research History - InsightForge AI{% endblock %}
+{% block content %}
+<div class="flex-between">
+  <div>
+    <h1>Research History</h1>
+    <p class="muted mt-0">All research sessions - open, search, export, or delete.</p>
+  </div>
+  <a class="btn btn-primary" href="/research/new">+ New Research</a>
+</div>
+
+<div class="card mt-2">
+  <div class="flex-gap mt-0">
+    <input type="text" id="search-box" placeholder="Search by question..." style="max-width:320px">
+    <div class="pill-select" id="status-filter">
+      <button data-status="" class="active">All</button>
+      <button data-status="completed">Completed</button>
+      <button data-status="running">Running</button>
+      <button data-status="failed">Failed</button>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-2" id="history-table-wrap">
+  <table>
+    <thead><tr><th>Question</th><th>Mode</th><th>Status</th><th>Created</th><th>Duration</th><th></th></tr></thead>
+    <tbody id="history-body"><tr><td colspan="6" class="muted text-center">Loading...</td></tr></tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>window.__PAGE_MODE__ = "history";</script>
+<script src="/static/js/history.js"></script>
+{% endblock %}

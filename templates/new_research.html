@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}New Research - InsightForge AI{% endblock %}
+{% block content %}
+<div style="max-width:720px;margin:0 auto">
+  <h1>Start New Research</h1>
+  <p class="muted">Describe what you want to know. The agent will plan, search, analyze, and synthesize a full report.</p>
+
+  <div class="card mt-2">
+    <div class="field">
+      <label for="question">Research Question</label>
+      <textarea id="question" placeholder="e.g. Compare the best AI coding assistants for developers in 2026, including pricing and integrations."></textarea>
+      <div class="field-hint" id="question-hint">Minimum 5 characters.</div>
+    </div>
+
+    <div class="field">
+      <label>Research Mode</label>
+      <div class="mode-grid" id="mode-grid">
+        <div class="mode-option selected" data-mode="quick">
+          <h4>⚡ Quick</h4>
+          <p>~3 tasks, ~4 sources. Fast overview.</p>
+        </div>
+        <div class="mode-option" data-mode="standard">
+          <h4>📘 Standard</h4>
+          <p>~5 tasks, ~8 sources. Balanced depth.</p>
+        </div>
+        <div class="mode-option" data-mode="deep">
+          <h4>🔬 Deep</h4>
+          <p>~8 tasks, ~15 sources. Most thorough.</p>
+        </div>
+        <div class="mode-option" data-mode="custom">
+          <h4>🎛️ Custom</h4>
+          <p>You choose task/source counts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2" id="custom-fields" style="display:none">
+      <div class="field">
+        <label for="custom-tasks">Number of tasks</label>
+        <input type="number" id="custom-tasks" min="1" max="15" value="5">
+      </div>
+      <div class="field">
+        <label for="custom-sources">Max sources</label>
+        <input type="number" id="custom-sources" min="1" max="30" value="8">
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-block" id="submit-btn">Start Research</button>
+    <p class="field-hint text-center mt-1" id="form-error" style="color:var(--danger)"></p>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="/static/js/new_research.js"></script>
+{% endblock %}

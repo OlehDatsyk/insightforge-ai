@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Settings - InsightForge AI{% endblock %}
+{% block content %}
+<h1>Settings</h1>
+<p class="muted mt-0">Configure AI provider routing. API keys are never stored here - they live only in your server's environment variables.</p>
+
+<div class="card mt-2">
+  <div class="card-header"><h3>Provider Configuration Status</h3></div>
+  <div id="provider-status" class="flex-gap">Loading...</div>
+  <p class="field-hint mt-2">To add or change API keys, edit your <code>.env</code> file (local) or your host's environment variables (Render/Railway), then restart the app. See INSTRUCTION.md for step-by-step help.</p>
+</div>
+
+<div class="card mt-2">
+  <div class="card-header"><h3>Fallback Chain</h3></div>
+  <p class="muted mt-0">If the primary provider fails, InsightForge automatically tries the fallback, then the secondary fallback.</p>
+  <div class="grid-2">
+    <div class="field">
+      <label>Primary Provider</label>
+      <select id="route-primary"></select>
+    </div>
+    <div class="field">
+      <label>Fallback Provider</label>
+      <select id="route-fallback"></select>
+    </div>
+  </div>
+  <div class="field">
+    <label>Secondary Fallback Provider</label>
+    <select id="route-secondary_fallback"></select>
+  </div>
+</div>
+
+<div class="card mt-2">
+  <div class="card-header"><h3>Task Routing</h3></div>
+  <p class="muted mt-0">Assign which provider handles each stage of the research pipeline (section 5: meaningful multi-model usage).</p>
+  <div class="grid-2">
+    <div class="field">
+      <label>Research Planning</label>
+      <select id="route-planning"></select>
+    </div>
+    <div class="field">
+      <label>Source Analysis</label>
+      <select id="route-analysis"></select>
+    </div>
+    <div class="field">
+      <label>Cross-Checking</label>
+      <select id="route-crosscheck"></select>
+    </div>
+    <div class="field">
+      <label>Final Synthesis</label>
+      <select id="route-synthesis"></select>
+    </div>
+  </div>
+  <button class="btn btn-primary" id="save-routing-btn">Save Routing Preferences</button>
+</div>
+
+<div class="card mt-2">
+  <div class="card-header"><h3>Safety Limits</h3></div>
+  <div id="limits-grid" class="stat-grid mt-0">Loading...</div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="/static/js/settings.js"></script>
+{% endblock %}

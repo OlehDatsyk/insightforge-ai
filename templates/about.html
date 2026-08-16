@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}About - InsightForge AI{% endblock %}
+{% block content %}
+<div style="max-width:760px;margin:0 auto">
+  <h1>About InsightForge AI</h1>
+  <p class="muted">An agentic, multi-model AI research platform - built to demonstrate real-world AI systems engineering, not a wrapper around a single chatbot API.</p>
+
+  <div class="card mt-2">
+    <h3>How research works</h3>
+    <p>Every research question flows through a real multi-step agent pipeline: a planning stage breaks the question into sub-tasks, a search stage collects sources with a real web-search tool, an analysis stage summarizes what each source says, a cross-checking stage compares sources for factual disagreements, and a synthesis stage writes the final structured report.</p>
+  </div>
+
+  <div class="card mt-2">
+    <h3>Multi-provider architecture</h3>
+    <p>InsightForge AI is not tied to a single AI vendor. OpenAI, Anthropic Claude, and Google Gemini are all first-class providers behind a common interface. If your primary provider is down, rate-limited, or unconfigured, the app automatically falls back to the next one in your configured chain - with no user-visible interruption beyond a brief retry.</p>
+  </div>
+
+  <div class="card mt-2">
+    <h3>Built with</h3>
+    <p>FastAPI · SQLAlchemy · vanilla HTML/CSS/JS · OpenAI, Anthropic, and Google Gemini SDKs · DuckDuckGo web search. See <a href="https://github.com" target="_blank" rel="noopener">ARCHITECTURE.md</a> in the repository for full technical documentation.</p>
+  </div>
+
+  <div class="card mt-2">
+    <h3>Project status</h3>
+    <p>This is a portfolio project demonstrating agentic AI system design: provider abstraction, fallback systems, structured output, tool calling, multi-step reasoning, and safety-bounded agent loops. See <code>PROJECT_REVIEW.md</code> for an honest technical self-assessment, including known limitations.</p>
+  </div>
+</div>
+{% endblock %}

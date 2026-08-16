@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}InsightForge AI - Agentic Multi-Model Research{% endblock %}
+{% block content %}
+<section class="hero">
+  <span class="hero-badge">⚡ Multi-provider agentic research engine</span>
+  <h1>Turn any research question into a cited, structured report.</h1>
+  <p class="lead">
+    InsightForge AI plans, searches, analyzes, cross-checks, and synthesizes - using
+    OpenAI, Anthropic Claude, and Google Gemini together, with automatic fallback if any
+    provider fails.
+  </p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="/research/new">Start New Research</a>
+    <a class="btn btn-secondary" href="/dashboard">View Dashboard</a>
+  </div>
+
+  <div class="pipeline-strip">
+    <span class="pipeline-step">1. Plan</span>
+    <span class="pipeline-step">2. Sub-tasks</span>
+    <span class="pipeline-step">3. Web Search</span>
+    <span class="pipeline-step">4. Source Analysis</span>
+    <span class="pipeline-step">5. Cross-Check</span>
+    <span class="pipeline-step">6. Synthesis</span>
+    <span class="pipeline-step">7. Final Report</span>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="icon">🧭</div>
+      <h3>Real agentic planning</h3>
+      <p>Every question is broken into concrete sub-tasks by an AI planner before any searching begins.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔀</div>
+      <h3>Multi-provider by design</h3>
+      <p>OpenAI, Claude, and Gemini each handle different pipeline stages - configurable per your needs.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🛟</div>
+      <h3>Automatic fallback</h3>
+      <p>If a provider errors, rate-limits, or times out, the next one in your chain picks up instantly.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔎</div>
+      <h3>Real web search</h3>
+      <p>Genuine search results with source quality scoring - authority, recency, relevance, and bias risk.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">⚖️</div>
+      <h3>Conflict detection</h3>
+      <p>When sources disagree, InsightForge flags it explicitly instead of silently picking a winner.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📄</div>
+      <h3>Export anywhere</h3>
+      <p>Download final reports as Markdown, HTML, PDF, TXT, or JSON.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

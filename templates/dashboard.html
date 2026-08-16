@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - InsightForge AI{% endblock %}
+{% block content %}
+<div class="flex-between mt-0">
+  <div>
+    <h1>Dashboard</h1>
+    <p class="muted mt-0">Overview of your research activity and AI provider status.</p>
+  </div>
+  <a class="btn btn-primary" href="/research/new">+ New Research</a>
+</div>
+
+<div class="stat-grid mt-3" id="stat-grid">
+  <div class="stat-card"><div class="stat-label">Total Sessions</div><div class="stat-value skeleton" style="height:30px;width:60%">&nbsp;</div></div>
+  <div class="stat-card"><div class="stat-label">Completed</div><div class="stat-value skeleton" style="height:30px;width:60%">&nbsp;</div></div>
+  <div class="stat-card"><div class="stat-label">Sources Collected</div><div class="stat-value skeleton" style="height:30px;width:60%">&nbsp;</div></div>
+  <div class="stat-card"><div class="stat-label">Avg. Duration</div><div class="stat-value skeleton" style="height:30px;width:60%">&nbsp;</div></div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-header"><h3>AI Providers</h3><a href="/settings" class="btn btn-ghost btn-sm">Configure -></a></div>
+    <div id="provider-status-list" class="flex-gap">Loading...</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><h3>Recent Research</h3><a href="/history" class="btn btn-ghost btn-sm">View all -></a></div>
+    <div id="recent-sessions">Loading...</div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

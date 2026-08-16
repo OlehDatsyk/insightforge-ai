@@ -1,0 +1,53 @@
+# --- Secrets ---
+.env
+.env.local
+.env.*.local
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Database & data ---
+data/*.db
+data/*.sqlite3
+*.db-journal
+
+# --- Exports / generated reports ---
+exports/*
+!exports/.gitkeep
+
+# --- Logs ---
+*.log
+logs/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Editors ---
+.vscode/
+.idea/
+*.swp
+
+# --- Testing ---
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Misc temp ---
+*.tmp
+*.temp
+tmp/

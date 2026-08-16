@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Research Progress - InsightForge AI{% endblock %}
+{% block content %}
+<div style="max-width:780px;margin:0 auto" data-session-id="{{ session_id }}">
+  <div class="flex-between">
+    <div>
+      <h1>Research in progress</h1>
+      <p class="muted mt-0" id="question-text">Loading...</p>
+    </div>
+    <span class="badge badge-info" id="status-badge">running</span>
+  </div>
+
+  <div class="card mt-2">
+    <div class="flex-between">
+      <strong>Overall Progress</strong>
+      <span id="progress-percent" class="muted">0%</span>
+    </div>
+    <div class="progress-track mt-1"><div class="progress-fill" id="overall-fill" style="width:0%"></div></div>
+
+    <div class="stage-list" id="stage-list">
+      <!-- populated by progress.js -->
+    </div>
+  </div>
+
+  <div class="card mt-2">
+    <div class="section-title">Live Activity Log</div>
+    <div class="log-feed" id="log-feed"></div>
+  </div>
+
+  <div class="text-center mt-3" id="progress-actions" style="display:none">
+    <a class="btn btn-primary" id="view-results-btn" href="#">View Full Report -></a>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="/static/js/progress.js"></script>
+{% endblock %}

@@ -1,0 +1,64 @@
+# ==============================================================================
+# Render deployment blueprint.
+# In the Render dashboard: New -> Blueprint -> point at your GitHub repo.
+# Render will read this file automatically.
+#
+# After the first deploy, set your real API keys in the Render dashboard
+# under Environment (they are marked `sync: false` below so Render prompts
+# you for them instead of expecting them in this committed file).
+# ==============================================================================
+services:
+  - type: web
+    name: insightforge-ai
+    runtime: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /api/health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: LOG_LEVEL
+        value: INFO
+      - key: DATABASE_URL
+        value: sqlite:////opt/render/project/src/data/insightforge.db
+      - key: PRIMARY_AI_PROVIDER
+        value: openai
+      - key: FALLBACK_AI_PROVIDER
+        value: anthropic
+      - key: SECONDARY_FALLBACK_AI_PROVIDER
+        value: gemini
+      - key: PLANNING_PROVIDER
+        value: openai
+      - key: ANALYSIS_PROVIDER
+        value: anthropic
+      - key: CROSSCHECK_PROVIDER
+        value: gemini
+      - key: SYNTHESIS_PROVIDER
+        value: anthropic
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+      - key: ANTHROPIC_MODEL
+        value: claude-sonnet-4-5-20250929
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      - key: SEARCH_BACKEND
+        value: duckduckgo
+      - key: MAX_AGENT_ITERATIONS
+        value: "10"
+      - key: MAX_TOOL_CALLS
+        value: "20"
+      - key: MAX_SOURCES
+        value: "10"
+      - key: MAX_RESEARCH_TASKS
+        value: "8"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
